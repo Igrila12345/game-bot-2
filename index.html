@@ -23,7 +23,6 @@
             overflow-x: hidden;
         }
         
-        /* КИБЕРПАНК ФОН */
         body::before {
             content: '';
             position: fixed;
@@ -54,13 +53,64 @@
             z-index: 1;
         }
         
-        /* НЕОНОВЫЙ ТЕКСТ */
-        .neon-text {
-            text-shadow: 
-                0 0 5px #ff00ff,
-                0 0 10px #ff00ff,
-                0 0 20px #ff00ff,
-                0 0 40px #ff00ff;
+        /* АНИМАЦИЯ МОНЕТ */
+        .coin-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        .coin {
+            position: absolute;
+            color: gold;
+            font-size: 30px;
+            animation: coinFly 2s ease-out forwards;
+            text-shadow: 0 0 20px gold;
+        }
+        
+        @keyframes coinFly {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        .collect-number {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #ff00ff, #00ff00);
+            color: white;
+            padding: 30px 50px;
+            border-radius: 60px;
+            font-size: 48px;
+            font-weight: 900;
+            z-index: 10000;
+            box-shadow: 0 0 50px #ff00ff, 0 0 100px #00ff00;
+            border: 3px solid white;
+            animation: numberPop 0.5s ease-out;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+            letter-spacing: 4px;
+        }
+        
+        @keyframes numberPop {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        
+        @keyframes numberFloat {
+            0% { transform: translate(-50%, -50%); opacity: 1; }
+            100% { transform: translate(-50%, -150%); opacity: 0; }
         }
         
         /* МОДАЛЬНОЕ ОКНО */
@@ -689,65 +739,6 @@
             opacity: 0.5;
             filter: drop-shadow(0 0 20px #ff00ff);
         }
-
-        /* Стили для анимации сбора */
-        .collect-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        
-        .collect-particle {
-            position: absolute;
-            border-radius: 50%;
-            box-shadow: 0 0 20px currentColor;
-            animation: particleFall 2s ease-out forwards;
-        }
-        
-        @keyframes particleFall {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(var(--tx), var(--ty)) rotate(720deg);
-                opacity: 0;
-            }
-        }
-        
-        .collect-number {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(135deg, #ff00ff, #00ff00);
-            color: white;
-            padding: 30px 50px;
-            border-radius: 60px;
-            font-size: 48px;
-            font-weight: 900;
-            z-index: 10000;
-            box-shadow: 0 0 50px #ff00ff, 0 0 100px #00ff00;
-            border: 3px solid white;
-            animation: numberPop 0.5s ease-out;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-            letter-spacing: 4px;
-        }
-        
-        @keyframes numberPop {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            50% { transform: translate(-50%, -50%) scale(1.2); }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-        }
-        
-        @keyframes numberFloat {
-            0% { transform: translate(-50%, -50%); opacity: 1; }
-            100% { transform: translate(-50%, -150%); opacity: 0; }
-        }
     </style>
 </head>
 <body>
@@ -882,6 +873,7 @@
                 document.getElementById('userAvatar').src = user.photo_200;
                 document.getElementById('userName').innerText = user.first_name + ' ' + user.last_name;
                 
+                // Загружаем данные игрока
                 const saved = localStorage.getItem('slaveryData_' + user.id);
                 if (saved) {
                     const loaded = JSON.parse(saved);
@@ -889,6 +881,9 @@
                     gameData.lastCollect = loaded.lastCollect || Date.now();
                     gameData.slaves = loaded.slaves || [];
                     gameData.clan = loaded.clan || null;
+                } else {
+                    // Сохраняем сразу, чтобы появиться в топе
+                    saveGame();
                 }
                 
                 // Загружаем кланы
@@ -924,7 +919,6 @@
                     clan: gameData.clan
                 }));
             }
-            localStorage.setItem('clans', JSON.stringify(clans));
         }
         
         // ========== ПОЛУЧИТЬ ДАННЫЕ ВСЕХ ИГРОКОВ ==========
@@ -959,36 +953,53 @@
             }, 2000);
         }
         
-        // ========== АНИМАЦИЯ СБОРА ==========
+        // ========== АНИМАЦИЯ СБОРА (МОНЕТЫ ЛЕТЯТ) ==========
         function showCollectAnimation(amount) {
             // Создаём контейнер
             const animContainer = document.createElement('div');
-            animContainer.className = 'collect-animation';
+            animContainer.className = 'coin-rain';
             
-            // Создаём 30 частиц
+            // Создаём 30 монет, летящих с разных сторон
             for (let i = 0; i < 30; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'collect-particle';
+                const coin = document.createElement('div');
+                coin.className = 'coin';
+                coin.innerHTML = '💰';
                 
-                const size = Math.random() * 15 + 5;
-                const startX = Math.random() * window.innerWidth;
-                const startY = Math.random() * window.innerHeight;
-                const color = Math.random() > 0.5 ? '#ff00ff' : '#00ff00';
-                const tx = (Math.random() - 0.5) * 400;
-                const ty = Math.random() * 400 + 200;
+                // Стартовая позиция (случайная сторона экрана)
+                const side = Math.floor(Math.random() * 4);
+                let startX, startY;
                 
-                particle.style.cssText = `
-                    left: ${startX}px;
-                    top: ${startY}px;
-                    width: ${size}px;
-                    height: ${size}px;
-                    background: ${color};
-                    box-shadow: 0 0 30px ${color};
-                    --tx: ${tx}px;
-                    --ty: ${ty}px;
-                `;
+                switch(side) {
+                    case 0: // сверху
+                        startX = Math.random() * window.innerWidth;
+                        startY = -50;
+                        break;
+                    case 1: // справа
+                        startX = window.innerWidth + 50;
+                        startY = Math.random() * window.innerHeight;
+                        break;
+                    case 2: // снизу
+                        startX = Math.random() * window.innerWidth;
+                        startY = window.innerHeight + 50;
+                        break;
+                    case 3: // слева
+                        startX = -50;
+                        startY = Math.random() * window.innerHeight;
+                        break;
+                }
                 
-                animContainer.appendChild(particle);
+                // Конечная позиция (центр экрана + разброс)
+                const endX = window.innerWidth / 2 - startX + (Math.random() - 0.5) * 200;
+                const endY = window.innerHeight / 2 - startY + (Math.random() - 0.5) * 200;
+                
+                coin.style.left = startX + 'px';
+                coin.style.top = startY + 'px';
+                coin.style.setProperty('--tx', endX + 'px');
+                coin.style.setProperty('--ty', endY + 'px');
+                coin.style.animation = `coinFly ${1 + Math.random()}s ease-out forwards`;
+                coin.style.fontSize = (20 + Math.random() * 30) + 'px';
+                
+                animContainer.appendChild(coin);
             }
             
             // Создаём число
@@ -1025,23 +1036,23 @@
             });
             document.getElementById('incomePerHour').innerHTML = `⏱️ ${hourlyIncome.toLocaleString()}/час`;
             
-            // Накопленный доход
+            // Накопленный доход (ИСПРАВЛЕНО!)
             const now = Date.now();
             const secondsPassed = Math.floor((now - gameData.lastCollect) / 1000);
             const maxSeconds = 24 * 3600;
             const effectiveSeconds = Math.min(secondsPassed, maxSeconds);
             
-            const accumulated = (hourlyIncome / 3600) * effectiveSeconds;
+            const accumulated = Math.floor((hourlyIncome / 3600) * effectiveSeconds);
             
             const collectBtn = document.getElementById('collectBtn');
             if (accumulated >= 1) {
                 collectBtn.disabled = false;
-                collectBtn.innerHTML = `💰 СОБРАТЬ ${Math.floor(accumulated).toLocaleString()} 💰`;
+                collectBtn.innerHTML = `💰 СОБРАТЬ ${accumulated.toLocaleString()} 💰`;
                 collectBtn.style.background = 'linear-gradient(135deg, #00ff00, #00cc00)';
                 collectBtn.style.animation = 'neonPulse 1s infinite';
             } else {
                 collectBtn.disabled = true;
-                collectBtn.innerHTML = `⏳ КОПИТСЯ...`;
+                collectBtn.innerHTML = `⏳ КОПИТСЯ... (${Math.floor(effectiveSeconds)}с)`;
                 collectBtn.style.background = '#444';
                 collectBtn.style.animation = 'none';
             }
@@ -1050,10 +1061,10 @@
             const level = Math.floor(gameData.slaves.length / 10) + 1;
             document.getElementById('userLevel').innerText = `УРОВЕНЬ ${level}`;
             
-            // Рейтинг (реальный из топа)
+            // Рейтинг (реальный из топа) - ИСПРАВЛЕНО!
             const allData = getAllPlayersData();
             const players = Object.keys(allData).map(id => ({
-                id,
+                id: id,
                 slaves: allData[id].slaves.length
             })).sort((a, b) => b.slaves - a.slaves);
             
@@ -1524,19 +1535,22 @@
             const allData = getAllPlayersData();
             const players = [];
             
+            // Добавляем текущего игрока, если его нет
+            if (user && !allData[user.id]) {
+                allData[user.id] = gameData;
+            }
+            
             // Собираем всех игроков
             for (let userId in allData) {
                 players.push({
                     id: userId,
-                    name: `Игрок ${userId}`,
-                    avatar: 'https://vk.com/images/camera_200.png',
                     slavesCount: allData[userId].slaves.length,
                     balance: allData[userId].balance,
                     clan: allData[userId].clan
                 });
             }
             
-            // Сортируем по рабам
+            // Сортируем по количеству рабов
             players.sort((a, b) => b.slavesCount - a.slavesCount);
             
             let html = '<div class="section"><div class="section-title">🏆 ТОП ИГРОКОВ</div>';
@@ -1555,16 +1569,17 @@
                         clanName = clan ? clan.name : '-';
                     }
                     
-                    // Пытаемся получить реальные данные из VK (асинхронно, но здесь не получится)
-                    // Поэтому пока оставим заглушки, но в модалке подтянутся реальные
+                    // Подсвечиваем текущего игрока
+                    const isCurrentUser = user && player.id == user.id;
+                    const borderColor = isCurrentUser ? '#00ff00' : '#ff00ff';
                     
                     html += `
-                        <div class="market-item" onclick="showPlayerFromTop('${player.id}')" style="cursor:pointer;">
+                        <div class="market-item" onclick="showPlayerFromTop('${player.id}')" style="cursor:pointer; border-color: ${borderColor}; box-shadow: 0 0 15px ${borderColor};">
                             <div style="display:flex; align-items:center; gap:15px; flex:1;">
                                 <div style="width:30px; font-weight:800; color:#ff00ff; text-shadow:0 0 10px #ff00ff;">#${i+1}</div>
-                                <img src="https://vk.com/images/camera_200.png" style="width:45px; height:45px; border-radius:50%; border:2px solid #ff00ff;">
+                                <img src="https://vk.com/images/camera_200.png" style="width:45px; height:45px; border-radius:50%; border:2px solid ${borderColor};">
                                 <div style="flex:1;">
-                                    <div style="font-weight:700;">ID: ${player.id}</div>
+                                    <div style="font-weight:700; ${isCurrentUser ? 'color:#00ff00;' : ''}">ID: ${player.id} ${isCurrentUser ? '(ты)' : ''}</div>
                                     <div style="color:#aaa; font-size:12px;">${clanName}</div>
                                 </div>
                             </div>
