@@ -63,19 +63,17 @@
         }
 
         /* Профиль */
-        .profile-section {
+        .profile-card {
             background: linear-gradient(145deg, #1e1e2e, #151522);
             border-radius: 24px;
             padding: 20px;
             margin-bottom: 16px;
-            border: 1px solid #2a2a3a;
         }
 
         .profile-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
         }
 
         .avatar {
@@ -85,17 +83,41 @@
             object-fit: cover;
         }
 
+        .profile-info {
+            flex: 1;
+        }
+
         .profile-name {
             font-size: 22px;
             font-weight: 700;
             color: #fff;
+            margin-bottom: 8px;
         }
 
+        .profile-stats {
+            display: flex;
+            gap: 20px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #aaa;
+        }
+
+        .stat-value {
+            color: gold;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* Баланс */
         .balance-card {
             background: linear-gradient(145deg, #1a1a28, #12121e);
             border-radius: 20px;
             padding: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             border: 1px solid gold;
         }
 
@@ -123,23 +145,25 @@
         .balance-income {
             color: #4caf50;
             font-size: 16px;
-            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .balance-accumulated {
+            color: #ffaa00;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         .collect-btn {
-            background: linear-gradient(135deg, gold, #ffaa00);
+            background: gold;
             color: #000;
             border: none;
             padding: 12px 24px;
-            border-radius: 40px;
-            font-weight: 800;
-            font-size: 16px;
+            border-radius: 30px;
+            font-weight: 700;
             cursor: pointer;
-        }
-
-        .collect-btn:disabled {
-            background: #444;
-            opacity: 0.5;
+            width: 100%;
         }
 
         /* Секции */
@@ -148,7 +172,6 @@
             border-radius: 24px;
             padding: 20px;
             margin-bottom: 16px;
-            border: 1px solid #2a2a3a;
         }
 
         .section-title {
@@ -158,27 +181,25 @@
             color: gold;
         }
 
-        /* Табы для топа */
-        .top-tabs {
+        /* Табы */
+        .tabs {
             display: flex;
             gap: 10px;
             margin-bottom: 20px;
         }
 
-        .top-tab {
+        .tab {
             flex: 1;
             background: #1e1e2e;
-            border: 1px solid #2a2a3a;
             padding: 10px;
             text-align: center;
             border-radius: 30px;
             cursor: pointer;
         }
 
-        .top-tab.active {
+        .tab.active {
             background: gold;
             color: #000;
-            border-color: gold;
         }
 
         /* Маркет */
@@ -218,7 +239,6 @@
         .slave-price {
             color: gold;
             font-weight: 700;
-            margin-right: 10px;
         }
 
         .buy-btn {
@@ -226,7 +246,7 @@
             color: #000;
             border: none;
             padding: 8px 16px;
-            border-radius: 30px;
+            border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
         }
@@ -236,85 +256,9 @@
             color: white;
             border: none;
             padding: 8px 16px;
-            border-radius: 30px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .market-status {
-            display: inline-block;
-            padding: 4px 12px;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-
-        .status-open {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-            border: 1px solid #4caf50;
-        }
-
-        .status-closed {
-            background: rgba(244, 67, 54, 0.2);
-            color: #f44336;
-            border: 1px solid #f44336;
-        }
-
-        /* Топ */
-        .top-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #1e1e2e;
-            padding: 12px;
-            border-radius: 16px;
-            margin-bottom: 8px;
             cursor: pointer;
-        }
-
-        .top-rank {
-            width: 30px;
-            height: 30px;
-            background: gold;
-            color: #000;
-            font-weight: 800;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        .top-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        .top-info {
-            flex: 1;
-        }
-
-        .top-name {
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .top-details {
-            display: flex;
-            gap: 15px;
-            font-size: 12px;
-            color: #aaa;
-        }
-
-        .top-balance {
-            color: gold;
-        }
-
-        .top-slaves {
-            color: #4caf50;
         }
 
         /* Кланы */
@@ -355,38 +299,38 @@
             border-radius: 50%;
         }
 
-        .clan-join-btn {
-            background: gold;
-            color: #000;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .clan-leave-btn {
-            background: #ff4444;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .clan-create-btn {
+        .add-clan-btn {
             background: #4caf50;
             color: white;
             border: none;
             padding: 15px;
             border-radius: 30px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             width: 100%;
             font-size: 16px;
+        }
+
+        .join-clan-btn {
+            background: gold;
+            color: #000;
+            border: none;
+            padding: 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .leave-clan-btn {
+            background: #ff4444;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
         }
 
         /* Пагинация */
@@ -408,16 +352,6 @@
             border-radius: 20px;
             font-weight: 600;
             cursor: pointer;
-        }
-
-        .pagination-btn:disabled {
-            background: #444;
-            color: #888;
-            cursor: not-allowed;
-        }
-
-        .pagination-info {
-            color: #fff;
         }
 
         /* Модальное окно */
@@ -442,16 +376,13 @@
             padding: 25px;
             max-width: 450px;
             width: 100%;
-            position: relative;
         }
 
         .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: #aaa;
+            float: right;
             font-size: 24px;
             cursor: pointer;
+            color: #aaa;
         }
 
         .modal-avatar {
@@ -467,54 +398,6 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 15px;
-        }
-
-        .modal-stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            padding: 15px 0;
-            border-top: 1px solid #2a2a3a;
-            border-bottom: 1px solid #2a2a3a;
-        }
-
-        .modal-stat-value {
-            font-size: 28px;
-            font-weight: 800;
-            color: gold;
-            text-align: center;
-        }
-
-        .modal-stat-label {
-            font-size: 12px;
-            color: #aaa;
-            text-align: center;
-        }
-
-        .modal-slave-item {
-            background: #1e1e2e;
-            border-radius: 12px;
-            padding: 10px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-
-        .modal-slave-avatar {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-        }
-
-        .modal-slave-name {
-            flex: 1;
-        }
-
-        .modal-slave-price {
-            color: gold;
-            font-weight: 700;
         }
 
         /* Уведомления */
@@ -536,12 +419,6 @@
             from { transform: translate(-50%, -100%); opacity: 0; }
             to { transform: translate(-50%, 0); opacity: 1; }
         }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: #aaa;
-        }
     </style>
 </head>
 <body>
@@ -552,13 +429,13 @@
                 <span class="nav-icon">🏪</span>
                 <span>Рынок</span>
             </div>
-            <div class="nav-item" onclick="showPage('mySlaves')" id="navMySlaves">
-                <span class="nav-icon">👥</span>
-                <span>Рабы</span>
-            </div>
             <div class="nav-item" onclick="showPage('top')" id="navTop">
                 <span class="nav-icon">🏆</span>
                 <span>Топ</span>
+            </div>
+            <div class="nav-item" onclick="showPage('clans')" id="navClans">
+                <span class="nav-icon">⚔️</span>
+                <span>Кланы</span>
             </div>
             <div class="nav-item" onclick="showPage('profile')" id="navProfile">
                 <span class="nav-icon">👤</span>
@@ -566,17 +443,16 @@
             </div>
         </div>
 
-        <!-- Контент страниц -->
+        <!-- Контент -->
         <div id="content"></div>
     </div>
 
     <script>
-        // ========== КОНФИГУРАЦИЯ ==========
+        // Конфигурация
         const ADMIN_IDS = [660964860];
         const GROUP_ID = 231991465;
-        const GROUP_TOKEN = 'vk1.a.XAhDjxvWUcrO5q6xzs-wiIWObToSVxKXB6QQ5UJzI8gpicZs98VR8eky7F4YmScRkbHxvvfWwTmAl3Iw21QRuTQna1DsmwVJGqhmjGFetmJQwAR-O0iJhTr25YG07uzEOTAOsd3cinK_GWK8SQzXMwS-RnhQjC8drM0Yd8sGBLr1F725agNzLV-hm253ElYiiT59zK5e96sj5ZNEwrpwgQ';
         
-        // ========== ДАННЫЕ ==========
+        // Данные
         let user = null;
         let gameData = {
             balance: 1000,
@@ -591,110 +467,72 @@
         
         let marketSlaves = [];
         let clans = [];
-        let bannedUsers = [];
         let usersCache = {};
         
-        // Настройки рынка
         let marketSettings = {
             isOpen: true,
             currentPage: 1,
             slavesPerPage: 15
         };
 
-        // Текущий таб в топе
-        let currentTopTab = 'players';
-
-        // ========== ИНИЦИАЛИЗАЦИЯ ==========
+        // Инициализация
         async function init() {
             try {
                 await vkBridge.send('VKWebAppInit');
                 user = await vkBridge.send('VKWebAppGetUserInfo');
                 
-                // Кэшируем пользователя
-                usersCache[user.id] = {
-                    first_name: user.first_name,
-                    last_name: user.last_name,
-                    photo: user.photo_200
-                };
+                document.getElementById('userAvatar').src = user.photo_200;
+                document.getElementById('userName').innerText = user.first_name + ' ' + user.last_name;
                 
-                // Загружаем данные
                 await loadAllData();
                 
-                // Показываем страницу
-                showPage('market');
+                showPage('profile');
                 
-                // Запускаем интервалы
                 setInterval(updateUI, 1000);
                 setInterval(saveAllData, 30000);
                 
             } catch (e) {
-                console.error('Ошибка инициализации:', e);
-                showNotification('Ошибка загрузки', true);
+                console.error('Ошибка:', e);
             }
         }
 
-        // ========== ЗАГРУЗКА ВСЕХ ДАННЫХ ==========
         async function loadAllData() {
             try {
-                // Загружаем данные игрока
                 const saved = await loadFromVK('slaveryData_' + user.id);
                 if (saved) {
-                    gameData = { 
-                        ...gameData, 
-                        ...saved, 
-                        userId: user.id,
-                        firstName: user.first_name,
-                        lastName: user.last_name,
-                        photo: user.photo_200
-                    };
-                } else {
-                    gameData = {
-                        balance: 1000,
-                        lastCollect: Date.now(),
-                        slaves: [],
-                        clan: null,
-                        userId: user.id,
-                        firstName: user.first_name,
-                        lastName: user.last_name,
-                        photo: user.photo_200
-                    };
+                    gameData = { ...gameData, ...saved };
                 }
                 
-                // Загружаем рынок
                 const savedMarket = await loadFromVK('marketSlaves');
                 if (savedMarket) {
                     marketSlaves = savedMarket;
                 } else {
-                    initMarket(2000);
+                    initMarket(500);
                 }
                 
-                // Загружаем настройки
-                const savedSettings = await loadFromVK('marketSettings');
-                if (savedSettings) {
-                    marketSettings = savedSettings;
-                }
-                
-                // Загружаем кланы
                 const savedClans = await loadFromVK('clans');
                 if (savedClans) {
                     clans = savedClans;
                 }
-                
-                // Загружаем банлист
-                const savedBanned = await loadFromVK('bannedUsers');
-                if (savedBanned) {
-                    bannedUsers = savedBanned;
-                }
-                
-                // Сохраняем
-                await saveAllData();
-                
             } catch (e) {
                 console.error('Ошибка загрузки:', e);
             }
         }
 
-        // ========== СОХРАНЕНИЕ ==========
+        function initMarket(count) {
+            const names = ['Робот', 'Андроид', 'Кибер', 'Дрон', 'Механизм'];
+            for (let i = 1; i <= count; i++) {
+                const price = Math.floor(Math.random() * 450) + 50;
+                marketSlaves.push({
+                    id: i,
+                    name: names[Math.floor(Math.random() * names.length)] + '-' + Math.floor(Math.random() * 1000),
+                    price: price,
+                    income: Math.floor(price * 0.1), // 10% в час
+                    avatar: `https://robohash.org/${i}.png`
+                });
+            }
+        }
+
         async function saveToVK(key, value) {
             try {
                 await vkBridge.send('VKWebAppStorageSet', {
@@ -711,7 +549,7 @@
                 const response = await vkBridge.send('VKWebAppStorageGet', {
                     keys: [key]
                 });
-                if (response.keys && response.keys[0] && response.keys[0].value) {
+                if (response.keys[0]?.value) {
                     return JSON.parse(response.keys[0].value);
                 }
             } catch (e) {
@@ -725,133 +563,15 @@
             if (!user) return;
             await saveToVK('slaveryData_' + user.id, gameData);
             await saveToVK('marketSlaves', marketSlaves);
-            await saveToVK('marketSettings', marketSettings);
             await saveToVK('clans', clans);
-            await saveToVK('bannedUsers', bannedUsers);
         }
 
-        // ========== ИНИЦИАЛИЗАЦИЯ РЫНКА ==========
-        function initMarket(count = 2000) {
-            const botNames = [
-                'Робот', 'Дрон', 'Андроид', 'Кибер', 'Механизм',
-                'Электроник', 'Техно', 'Процессор', 'Сервер', 'Компьютер'
-            ];
-            
-            marketSlaves = [];
-            for (let i = 1; i <= count; i++) {
-                const nameIndex = Math.floor(Math.random() * botNames.length);
-                const botNumber = Math.floor(Math.random() * 1000);
-                const price = Math.floor(100 * Math.pow(1.5, Math.floor(Math.random() * 10)));
-                // Доход = 10% от цены (минимум 1)
-                const income = Math.max(1, Math.floor(price * 0.1));
-                
-                marketSlaves.push({
-                    id: i,
-                    name: `${botNames[nameIndex]}-${botNumber}`,
-                    price: price,
-                    avatar: `https://robohash.org/${i}.png?size=200x200&set=set1`,
-                    income: income
-                });
-            }
-        }
-
-        // ========== ОБНОВЛЕНИЕ UI ==========
         function updateUI() {
-            if (!gameData) return;
-            
-            // Обновляем профиль если открыт
             if (document.getElementById('navProfile').classList.contains('active')) {
-                showPage('profile');
+                showProfile(document.getElementById('content'));
             }
         }
 
-        // ========== СБОР ДОХОДА ==========
-        function collectIncome() {
-            if (bannedUsers.includes(user?.id)) {
-                showNotification('Вы забанены!', true);
-                return;
-            }
-            
-            const now = Date.now();
-            const secondsPassed = Math.floor((now - gameData.lastCollect) / 1000);
-            
-            let hourlyIncome = 0;
-            gameData.slaves.forEach(slave => {
-                hourlyIncome += slave.income || 0;
-            });
-            
-            const accumulated = Math.floor((hourlyIncome / 3600) * secondsPassed);
-            
-            if (accumulated < 1) {
-                showNotification('Нет дохода для сбора', true);
-                return;
-            }
-            
-            gameData.balance += accumulated;
-            gameData.lastCollect = now;
-            
-            showNotification(`💰 +${accumulated} монет!`);
-            saveAllData();
-            
-            if (document.getElementById('navProfile').classList.contains('active')) {
-                showPage('profile');
-            }
-        }
-
-        // ========== ПОКУПКА РАБА ==========
-        function buySlave(index) {
-            if (bannedUsers.includes(user?.id)) {
-                showNotification('Вы забанены!', true);
-                return;
-            }
-            
-            if (!marketSettings.isOpen) {
-                showNotification('Рынок закрыт!', true);
-                return;
-            }
-            
-            const globalIndex = (marketSettings.currentPage - 1) * marketSettings.slavesPerPage + index;
-            const slave = marketSlaves[globalIndex];
-            
-            if (!slave) return;
-            
-            if (gameData.balance < slave.price) {
-                showNotification('Недостаточно монет!', true);
-                return;
-            }
-            
-            gameData.balance -= slave.price;
-            gameData.slaves.push({
-                ...slave,
-                id: Date.now()
-            });
-            
-            marketSlaves.splice(globalIndex, 1);
-            
-            saveAllData();
-            showNotification(`✅ ${slave.name} куплен! Доход +${slave.income}/ч`);
-            showPage('market');
-        }
-
-        // ========== ПРОДАЖА РАБА ==========
-        function sellSlave(index) {
-            if (bannedUsers.includes(user?.id)) {
-                showNotification('Вы забанены!', true);
-                return;
-            }
-            
-            const slave = gameData.slaves[index];
-            const sellPrice = Math.floor(slave.price * 0.5);
-            
-            gameData.balance += sellPrice;
-            gameData.slaves.splice(index, 1);
-            
-            saveAllData();
-            showNotification(`💰 ${slave.name} продан за ${sellPrice}`);
-            showPage('mySlaves');
-        }
-
-        // ========== ПОКАЗ СТРАНИЦ ==========
         function showPage(page) {
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
@@ -860,259 +580,331 @@
             
             const content = document.getElementById('content');
             
-            if (page === 'market') showMarket(content);
-            else if (page === 'mySlaves') showMySlaves(content);
+            if (page === 'profile') showProfile(content);
+            else if (page === 'market') showMarket(content);
             else if (page === 'top') showTop(content);
-            else if (page === 'profile') showProfile(content);
+            else if (page === 'clans') showClans(content);
         }
 
-        // ========== СТРАНИЦА ПРОФИЛЯ ==========
+        // ПРОФИЛЬ
         function showProfile(container) {
             let hourlyIncome = 0;
-            gameData.slaves.forEach(slave => {
-                hourlyIncome += slave.income || 0;
-            });
+            gameData.slaves.forEach(s => hourlyIncome += s.income);
             
             const now = Date.now();
             const secondsPassed = Math.floor((now - gameData.lastCollect) / 1000);
             const accumulated = Math.floor((hourlyIncome / 3600) * secondsPassed);
             
             let slavesHtml = '';
-            if (gameData.slaves.length === 0) {
-                slavesHtml = '<div class="empty-state">У вас нет рабов</div>';
-            } else {
-                gameData.slaves.forEach((slave, index) => {
-                    slavesHtml += `
-                        <div class="market-item">
-                            <div class="slave-info">
-                                <img src="${slave.avatar}" class="slave-avatar">
-                                <div>
-                                    <div class="slave-name">${slave.name}</div>
-                                    <div class="slave-income">+${slave.income}/ч</div>
-                                </div>
-                            </div>
+            gameData.slaves.forEach((slave, index) => {
+                slavesHtml += `
+                    <div class="market-item">
+                        <div class="slave-info">
+                            <img src="${slave.avatar}" class="slave-avatar">
                             <div>
-                                <span class="slave-price">${slave.price.toLocaleString()}💰</span>
-                                <button class="sell-btn" onclick="sellSlave(${index})">Продать</button>
+                                <div class="slave-name">${slave.name}</div>
+                                <div class="slave-income">+${slave.income}/ч</div>
                             </div>
                         </div>
-                    `;
-                });
-            }
+                        <div>
+                            <span class="slave-price">${slave.price}💰</span>
+                            <button class="sell-btn" onclick="sellSlave(${index})">Продать</button>
+                        </div>
+                    </div>
+                `;
+            });
             
             let html = `
-                <div class="profile-section">
+                <div class="profile-card">
                     <div class="profile-header">
-                        <img src="${gameData.photo}" class="avatar">
-                        <div class="profile-name">${gameData.firstName} ${gameData.lastName}</div>
-                    </div>
-                    
-                    <div class="balance-card">
-                        <div class="balance-header">
-                            <span class="balance-label">БАЛАНС</span>
-                            <button class="collect-btn" onclick="collectIncome()" ${accumulated < 1 ? 'disabled' : ''}>
-                                ${accumulated >= 1 ? `Собрать ${accumulated}` : 'Собрать'}
-                            </button>
+                        <img src="${user.photo_200}" class="avatar">
+                        <div class="profile-info">
+                            <div class="profile-name">${user.first_name} ${user.last_name}</div>
+                            <div class="profile-stats">
+                                <div class="stat"><span>👥</span><span class="stat-value">${gameData.slaves.length}</span></div>
+                                <div class="stat"><span>💰</span><span class="stat-value">${gameData.balance}</span></div>
+                            </div>
                         </div>
-                        <div class="balance-amount">${Math.floor(gameData.balance).toLocaleString()}</div>
-                        <div class="balance-income">+${hourlyIncome} в час</div>
                     </div>
-                    
+                </div>
+                
+                <div class="balance-card">
+                    <div class="balance-header">
+                        <span class="balance-label">БАЛАНС</span>
+                    </div>
+                    <div class="balance-amount">${gameData.balance}</div>
+                    <div class="balance-income">+${hourlyIncome} в час</div>
+                    <div class="balance-accumulated">Накоплено: ${accumulated} 💰</div>
+                    <button class="collect-btn" onclick="collectIncome()" ${accumulated < 1 ? 'disabled' : ''}>
+                        СОБРАТЬ ${accumulated} 💰
+                    </button>
+                </div>
+                
+                <div class="section">
                     <div class="section-title">👥 МОИ РАБЫ (${gameData.slaves.length})</div>
-                    ${slavesHtml}
+                    ${slavesHtml || '<div style="text-align:center; padding:20px;">Нет рабов</div>'}
                 </div>
             `;
             
             container.innerHTML = html;
         }
 
-        // ========== СТРАНИЦА РЫНКА ==========
+        // СБОР ДОХОДА
+        function collectIncome() {
+            const now = Date.now();
+            const secondsPassed = Math.floor((now - gameData.lastCollect) / 1000);
+            
+            let hourlyIncome = 0;
+            gameData.slaves.forEach(s => hourlyIncome += s.income);
+            
+            const accumulated = Math.floor((hourlyIncome / 3600) * secondsPassed);
+            
+            if (accumulated < 1) return;
+            
+            gameData.balance += accumulated;
+            gameData.lastCollect = now;
+            
+            showNotification(`💰 +${accumulated} монет!`);
+            saveAllData();
+            showPage('profile');
+        }
+
+        // РЫНОК
         function showMarket(container) {
-            const startIndex = (marketSettings.currentPage - 1) * marketSettings.slavesPerPage;
-            const endIndex = Math.min(startIndex + marketSettings.slavesPerPage, marketSlaves.length);
+            const start = (marketSettings.currentPage - 1) * marketSettings.slavesPerPage;
+            const end = Math.min(start + marketSettings.slavesPerPage, marketSlaves.length);
             const totalPages = Math.ceil(marketSlaves.length / marketSettings.slavesPerPage);
             
             let html = `
                 <div class="section">
                     <div class="section-title">
-                        <span>🏪 РЫНОК РАБОВ</span>
+                        🏪 РЫНОК
                         <span class="market-status ${marketSettings.isOpen ? 'status-open' : 'status-closed'}">
                             ${marketSettings.isOpen ? 'ОТКРЫТ' : 'ЗАКРЫТ'}
                         </span>
                     </div>
             `;
             
-            if (marketSlaves.length === 0) {
-                html += '<div class="empty-state">Рынок пуст</div>';
-            } else {
-                for (let i = startIndex; i < endIndex; i++) {
-                    const slave = marketSlaves[i];
-                    const displayIndex = i - startIndex;
-                    html += `
-                        <div class="market-item">
-                            <div class="slave-info">
-                                <img src="${slave.avatar}" class="slave-avatar">
-                                <div>
-                                    <div class="slave-name">${slave.name}</div>
-                                    <div class="slave-income">+${slave.income}/ч</div>
-                                </div>
-                            </div>
+            for (let i = start; i < end; i++) {
+                const slave = marketSlaves[i];
+                html += `
+                    <div class="market-item">
+                        <div class="slave-info">
+                            <img src="${slave.avatar}" class="slave-avatar">
                             <div>
-                                <span class="slave-price">${slave.price.toLocaleString()}💰</span>
-                                <button class="buy-btn" onclick="buySlave(${displayIndex})" ${!marketSettings.isOpen ? 'disabled' : ''}>Купить</button>
+                                <div class="slave-name">${slave.name}</div>
+                                <div class="slave-income">+${slave.income}/ч</div>
                             </div>
                         </div>
-                    `;
-                }
-                
-                html += `
-                    <div class="pagination">
-                        <button class="pagination-btn" onclick="prevPage()" ${marketSettings.currentPage === 1 ? 'disabled' : ''}>◀</button>
-                        <span class="pagination-info">${marketSettings.currentPage} / ${totalPages}</span>
-                        <button class="pagination-btn" onclick="nextPage()" ${marketSettings.currentPage === totalPages ? 'disabled' : ''}>▶</button>
+                        <div>
+                            <span class="slave-price">${slave.price}💰</span>
+                            <button class="buy-btn" onclick="buySlave(${i})" ${!marketSettings.isOpen ? 'disabled' : ''}>Купить</button>
+                        </div>
                     </div>
                 `;
             }
             
-            html += '</div>';
+            html += `
+                <div class="pagination">
+                    <button class="pagination-btn" onclick="prevPage()" ${marketSettings.currentPage === 1 ? 'disabled' : ''}>◀</button>
+                    <span>${marketSettings.currentPage} / ${totalPages}</span>
+                    <button class="pagination-btn" onclick="nextPage()" ${marketSettings.currentPage === totalPages ? 'disabled' : ''}>▶</button>
+                </div>
+            </div>`;
+            
             container.innerHTML = html;
         }
 
-        // ========== СТРАНИЦА МОИ РАБЫ ==========
-        function showMySlaves(container) {
-            let html = '<div class="section"><div class="section-title">👥 МОИ РАБЫ</div>';
-            
-            if (gameData.slaves.length === 0) {
-                html += '<div class="empty-state">У вас нет рабов</div>';
-            } else {
-                gameData.slaves.forEach((slave, index) => {
-                    html += `
-                        <div class="market-item">
-                            <div class="slave-info">
-                                <img src="${slave.avatar}" class="slave-avatar">
-                                <div>
-                                    <div class="slave-name">${slave.name}</div>
-                                    <div class="slave-income">+${slave.income}/ч</div>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="slave-price">${slave.price.toLocaleString()}💰</span>
-                                <button class="sell-btn" onclick="sellSlave(${index})">Продать</button>
-                            </div>
-                        </div>
-                    `;
-                });
+        function buySlave(index) {
+            const slave = marketSlaves[index];
+            if (gameData.balance < slave.price) {
+                showNotification('Недостаточно монет!', true);
+                return;
             }
             
-            html += '</div>';
-            container.innerHTML = html;
+            gameData.balance -= slave.price;
+            gameData.slaves.push({...slave, id: Date.now()});
+            marketSlaves.splice(index, 1);
+            
+            saveAllData();
+            showNotification(`✅ ${slave.name} куплен! +${slave.income}/ч`);
+            showPage('market');
         }
 
-        // ========== СТРАНИЦА ТОП ==========
+        function sellSlave(index) {
+            const slave = gameData.slaves[index];
+            const sellPrice = Math.floor(slave.price * 0.5);
+            
+            gameData.balance += sellPrice;
+            gameData.slaves.splice(index, 1);
+            
+            saveAllData();
+            showNotification(`💰 Продан за ${sellPrice}`);
+            showPage('profile');
+        }
+
+        // ТОП
         function showTop(container) {
             let html = `
                 <div class="section">
-                    <div class="top-tabs">
-                        <div class="top-tab ${currentTopTab === 'players' ? 'active' : ''}" onclick="switchTopTab('players')">👥 Игроки</div>
-                        <div class="top-tab ${currentTopTab === 'clans' ? 'active' : ''}" onclick="switchTopTab('clans')">⚔️ Кланы</div>
+                    <div class="tabs">
+                        <div class="tab active" onclick="showTopTab('players')">👥 Игроки</div>
+                        <div class="tab" onclick="showTopTab('clans')">⚔️ Кланы</div>
                     </div>
+                    <div id="top-content"></div>
+                </div>
             `;
-            
-            if (currentTopTab === 'players') {
-                html += showPlayersTop();
-            } else {
-                html += showClansTop();
-            }
-            
-            html += '</div>';
             container.innerHTML = html;
+            showTopTab('players');
         }
 
-        function switchTopTab(tab) {
-            currentTopTab = tab;
-            showPage('top');
-        }
-
-        function showPlayersTop() {
-            // Собираем всех игроков (в реальности нужно загружать из VK Storage)
-            const players = [{
-                id: user.id,
-                firstName: gameData.firstName,
-                lastName: gameData.lastName,
-                photo: gameData.photo,
-                slavesCount: gameData.slaves.length,
-                balance: gameData.balance,
-                clan: gameData.clan
-            }];
+        function showTopTab(tab) {
+            const topContent = document.getElementById('top-content');
+            if (!topContent) return;
             
-            players.sort((a, b) => b.slavesCount - a.slavesCount);
-            
-            let html = '<div class="market-grid">';
-            
-            if (players.length === 0) {
-                html += '<div class="empty-state">Пока нет игроков</div>';
-            } else {
-                for (let i = 0; i < players.length; i++) {
-                    const player = players[i];
+            if (tab === 'players') {
+                let players = [{
+                    id: user.id,
+                    name: user.first_name + ' ' + user.last_name,
+                    photo: user.photo_200,
+                    slaves: gameData.slaves.length,
+                    balance: gameData.balance
+                }];
+                
+                players.sort((a, b) => b.slaves - a.slaves);
+                
+                let html = '';
+                players.forEach((p, i) => {
                     html += `
-                        <div class="top-item" onclick="showPlayerProfile('${player.id}')">
-                            <div class="top-rank">${i + 1}</div>
-                            <img src="${player.photo}" class="top-avatar">
+                        <div class="top-item" onclick="showPlayer('${p.id}')">
+                            <div class="top-rank">${i+1}</div>
+                            <img src="${p.photo}" class="top-avatar">
                             <div class="top-info">
-                                <div class="top-name">${player.firstName} ${player.lastName}</div>
+                                <div class="top-name">${p.name}</div>
                                 <div class="top-details">
-                                    <span class="top-balance">💰 ${player.balance.toLocaleString()}</span>
-                                    <span class="top-slaves">👥 ${player.slavesCount}</span>
+                                    <span>👥 ${p.slaves}</span>
+                                    <span class="top-balance">💰 ${p.balance}</span>
                                 </div>
                             </div>
                         </div>
                     `;
-                }
-            }
-            
-            html += '</div>';
-            return html;
-        }
-
-        function showClansTop() {
-            let html = '<div class="market-grid">';
-            
-            if (clans.length === 0) {
-                html += '<div class="empty-state">Пока нет кланов</div>';
+                });
+                topContent.innerHTML = html;
             } else {
-                // Сортируем кланы по количеству участников
-                const sortedClans = [...clans].sort((a, b) => b.members - a.members);
-                
-                sortedClans.forEach((clan, index) => {
+                let html = '';
+                clans.forEach((c, i) => {
                     html += `
                         <div class="clan-item">
                             <div class="clan-header">
-                                <span class="clan-name">${clan.name}</span>
-                                <span class="clan-members">👥 ${clan.members}</span>
+                                <span class="clan-name">${c.name}</span>
+                                <span class="clan-members">👥 ${c.members}</span>
                             </div>
                             <div class="clan-leader">
-                                <img src="${clan.leaderAvatar}" class="clan-leader-avatar">
-                                <span>${clan.leader}</span>
+                                <img src="${c.leaderAvatar}" class="clan-leader-avatar">
+                                <span>${c.leader}</span>
                             </div>
-                            <button class="clan-join-btn" onclick="joinClan(${clan.id})">Вступить</button>
+                            ${gameData.clan === c.id ? 
+                                `<button class="leave-clan-btn" onclick="leaveClan(${c.id})">Выйти</button>` : 
+                                `<button class="join-clan-btn" onclick="joinClan(${c.id})">Вступить</button>`
+                            }
                         </div>
                     `;
                 });
+                topContent.innerHTML = html || '<div style="text-align:center; padding:20px;">Нет кланов</div>';
             }
-            
-            html += `
-                <div style="margin-top: 20px;">
-                    <a href="https://vk.com/club${GROUP_ID}" target="_blank">
-                        <button class="clan-create-btn">🔗 Привязать сообщество</button>
-                    </a>
-                </div>
-            `;
-            
-            html += '</div>';
-            return html;
         }
 
-        // ========== ФУНКЦИИ КЛАНОВ ==========
+        // КЛАНЫ
+        function showClans(container) {
+            let html = `
+                <div class="section">
+                    <div class="section-title">⚔️ КЛАНЫ</div>
+                    <button class="add-clan-btn" onclick="addClan()">
+                        🔗 ПРИВЯЗАТЬ СООБЩЕСТВО
+                    </button>
+                    <div style="margin-top:20px;" id="clans-list"></div>
+                </div>
+            `;
+            container.innerHTML = html;
+            updateClansList();
+        }
+
+        function updateClansList() {
+            const list = document.getElementById('clans-list');
+            if (!list) return;
+            
+            let html = '';
+            clans.forEach(clan => {
+                html += `
+                    <div class="clan-item">
+                        <div class="clan-header">
+                            <span class="clan-name">${clan.name}</span>
+                            <span class="clan-members">👥 ${clan.members}</span>
+                        </div>
+                        <div class="clan-leader">
+                            <img src="${clan.leaderAvatar}" class="clan-leader-avatar">
+                            <span>${clan.leader}</span>
+                        </div>
+                        ${gameData.clan === clan.id ? 
+                            `<button class="leave-clan-btn" onclick="leaveClan(${clan.id})">Выйти</button>` : 
+                            `<button class="join-clan-btn" onclick="joinClan(${clan.id})">Вступить</button>`
+                        }
+                    </div>
+                `;
+            });
+            list.innerHTML = html || '<div style="text-align:center;">Нет кланов</div>';
+        }
+
+        // ДОБАВЛЕНИЕ КЛАНА ЧЕРЕЗ ВЫБОР СООБЩЕСТВА
+        async function addClan() {
+            try {
+                // Показываем выбор сообщества
+                const result = await vkBridge.send('VKWebAppShowCommunityWidget');
+                
+                if (result.community_id) {
+                    // Получаем информацию о сообществе
+                    const group = await vkBridge.send('VKWebAppCallAPIMethod', {
+                        method: 'groups.getById',
+                        params: {
+                            group_id: result.community_id,
+                            fields: 'name,photo_200',
+                            v: '5.131'
+                        }
+                    });
+                    
+                    if (group && group.response && group.response.groups) {
+                        const community = group.response.groups[0];
+                        
+                        // Проверяем, не добавлено ли уже такое сообщество
+                        if (clans.some(c => c.id === -result.community_id)) {
+                            showNotification('Это сообщество уже в игре!', true);
+                            return;
+                        }
+                        
+                        // Создаем клан
+                        const newClan = {
+                            id: -result.community_id, // отрицательный ID для сообществ
+                            name: community.name,
+                            members: 1,
+                            leader: user.first_name + ' ' + user.last_name,
+                            leaderId: user.id,
+                            leaderAvatar: user.photo_200,
+                            communityId: result.community_id
+                        };
+                        
+                        clans.push(newClan);
+                        await saveAllData();
+                        
+                        showNotification(`✅ Клан ${community.name} создан!`);
+                        showPage('clans');
+                    }
+                }
+            } catch (e) {
+                console.error('Ошибка при выборе сообщества:', e);
+                showNotification('Не удалось выбрать сообщество', true);
+            }
+        }
+
         function joinClan(clanId) {
             if (gameData.clan) {
                 showNotification('Вы уже в клане!', true);
@@ -1126,146 +918,24 @@
             gameData.clan = clanId;
             
             saveAllData();
-            showNotification(`✅ Вы вступили в клан ${clan.name}`);
-            showPage('top');
+            showNotification(`✅ Вы вступили в ${clan.name}`);
+            showPage('clans');
         }
 
-        // ========== ПОКАЗ ПРОФИЛЯ ИГРОКА ==========
-        async function showPlayerProfile(userId) {
-            try {
-                let playerData = await loadFromVK('slaveryData_' + userId);
-                let playerInfo = usersCache[userId];
-                
-                if (!playerInfo) {
-                    playerInfo = {
-                        first_name: 'Пользователь',
-                        last_name: userId,
-                        photo: 'https://vk.com/images/camera_200.png'
-                    };
-                }
-                
-                if (!playerData) {
-                    playerData = {
-                        balance: 1000,
-                        slaves: [],
-                        clan: null
-                    };
-                }
-                
-                showPlayerModal(playerInfo, playerData, userId);
-            } catch (e) {
-                showNotification('Ошибка загрузки профиля', true);
-            }
+        function leaveClan(clanId) {
+            const clan = clans.find(c => c.id === clanId);
+            if (clan) clan.members--;
+            gameData.clan = null;
+            
+            saveAllData();
+            showNotification('✅ Вы вышли из клана');
+            showPage('clans');
         }
 
-        // ========== МОДАЛЬНОЕ ОКНО ==========
-        function showPlayerModal(playerInfo, playerData, userId) {
-            let clanName = '-';
-            if (playerData.clan) {
-                const clan = clans.find(c => c.id === playerData.clan);
-                clanName = clan ? clan.name : '-';
-            }
-            
-            let slavesHtml = '';
-            if (playerData.slaves && playerData.slaves.length > 0) {
-                playerData.slaves.slice(0, 5).forEach((slave, index) => {
-                    slavesHtml += `
-                        <div class="modal-slave-item" onclick="buySlaveFromPlayer('${userId}', ${index})">
-                            <img src="${slave.avatar}" class="modal-slave-avatar">
-                            <div class="modal-slave-name">${slave.name}</div>
-                            <div class="modal-slave-price">${slave.price.toLocaleString()}💰</div>
-                        </div>
-                    `;
-                });
-            } else {
-                slavesHtml = '<div class="empty-state">Нет рабов</div>';
-            }
-            
-            const modal = document.createElement('div');
-            modal.className = 'modal-overlay';
-            modal.innerHTML = `
-                <div class="modal-content">
-                    <div class="modal-close" onclick="this.closest('.modal-overlay').remove()">✕</div>
-                    <img src="${playerInfo.photo}" class="modal-avatar">
-                    <div class="modal-name">${playerInfo.first_name} ${playerInfo.last_name}</div>
-                    
-                    <div class="modal-stats">
-                        <div>
-                            <div class="modal-stat-value">${playerData.slaves.length}</div>
-                            <div class="modal-stat-label">Рабов</div>
-                        </div>
-                        <div>
-                            <div class="modal-stat-value">${Math.floor(playerData.balance).toLocaleString()}</div>
-                            <div class="modal-stat-label">Баланс</div>
-                        </div>
-                    </div>
-                    
-                    <div style="background: #1e1e2e; border: 1px solid gold; padding: 10px; border-radius: 15px; text-align: center; margin: 15px 0;">
-                        ⚔️ Клан: ${clanName}
-                    </div>
-                    
-                    <div style="font-weight: 700; margin: 15px 0 10px;">👥 Рабы (${playerData.slaves.length})</div>
-                    <div class="modal-slaves-list">
-                        ${slavesHtml}
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-        }
-
-        // ========== ПОКУПКА РАБА У ИГРОКА ==========
-        async function buySlaveFromPlayer(playerId, slaveIndex) {
-            if (bannedUsers.includes(user?.id)) {
-                showNotification('Вы забанены!', true);
-                return;
-            }
-            
-            if (playerId == user.id) {
-                showNotification('Нельзя купить у себя!', true);
-                return;
-            }
-            
-            try {
-                const playerData = await loadFromVK('slaveryData_' + playerId);
-                if (!playerData) {
-                    showNotification('Игрок не найден', true);
-                    return;
-                }
-                
-                const slave = playerData.slaves[slaveIndex];
-                if (!slave) return;
-                
-                if (gameData.balance < slave.price) {
-                    showNotification('Недостаточно монет!', true);
-                    return;
-                }
-                
-                gameData.balance -= slave.price;
-                playerData.balance += slave.price;
-                
-                gameData.slaves.push({
-                    ...slave,
-                    id: Date.now()
-                });
-                
-                playerData.slaves.splice(slaveIndex, 1);
-                
-                await saveToVK('slaveryData_' + playerId, playerData);
-                await saveAllData();
-                
-                showNotification('✅ Раб куплен!');
-                document.querySelector('.modal-overlay')?.remove();
-                
-            } catch (e) {
-                showNotification('Ошибка при покупке', true);
-            }
-        }
-
-        // ========== ПАГИНАЦИЯ ==========
+        // ПАГИНАЦИЯ
         function nextPage() {
-            const totalPages = Math.ceil(marketSlaves.length / marketSettings.slavesPerPage);
-            if (marketSettings.currentPage < totalPages) {
+            const total = Math.ceil(marketSlaves.length / marketSettings.slavesPerPage);
+            if (marketSettings.currentPage < total) {
                 marketSettings.currentPage++;
                 showPage('market');
             }
@@ -1278,7 +948,7 @@
             }
         }
 
-        // ========== УВЕДОМЛЕНИЯ ==========
+        // УВЕДОМЛЕНИЯ
         function showNotification(text, isError = false) {
             const notif = document.createElement('div');
             notif.className = 'notification';
@@ -1287,11 +957,10 @@
             notif.innerText = text;
             
             document.body.appendChild(notif);
-            
             setTimeout(() => notif.remove(), 2000);
         }
 
-        // ========== ЗАПУСК ==========
+        // ЗАПУСК
         init();
     </script>
 </body>
